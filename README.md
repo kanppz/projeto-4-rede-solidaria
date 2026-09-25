@@ -18,6 +18,10 @@ Rotas por hash: Início, Projetos e Sobre. Formulário com validação local, se
 
 ## Estado da entrega
 
+Repositório público: https://github.com/kanppz/projeto-4-rede-solidaria
+
+O histórico local e as branches main, develop e feature/documentacao-gitflow foram publicados. Auditoria de acessibilidade, build e deploy continuam pendentes. A conformidade WCAG não foi certificada. Não há release publicada nesta etapa.
+
 ## Fluxo de branches
 
 - `main`: base de lançamento; recebe apenas versões preparadas e verificadas.
@@ -26,6 +30,16 @@ Rotas por hash: Início, Projetos e Sobre. Formulário com validação local, se
 - Futuras `release/*`: partirão de develop para preparação de uma versão, com integração em main e develop e tag de versão após validação.
 - Futuras `hotfix/*`: partirão de main para correções urgentes, retornando a main e develop.
 
-Commits usam prefixos como chore, docs, feat e fix. Não há branches release/hotfix criadas sem trabalho correspondente. Pull requests e revisão no GitHub permanecem pendentes de configuração do remoto.
+Commits usam prefixos como chore, docs, feat e fix. Não há branches release/hotfix criadas sem trabalho correspondente.
 
-A base foi copiada do Projeto 3 para um repositório independente. GitHub, revisão remota, auditoria de acessibilidade, build e deploy ainda não foram executados neste projeto. A conformidade WCAG não foi certificada.
+## Colaboração e rastreabilidade
+
+A [issue #1](https://github.com/kanppz/projeto-4-rede-solidaria/issues/1) define os critérios da atualização desta documentação. O trabalho ocorre em feature/colaboracao-github, criada a partir de develop, e é apresentado em pull request para develop antes da integração.
+
+Fluxo para futuras alterações: abrir issue com critérios de aceite, vinculá-la ao milestone da etapa, criar branch feature, registrar commits claros, abrir PR com contexto e validação, revisar o diff e então integrar. Referencie a issue na descrição do PR. Como develop não é a branch padrão, confira o encerramento da issue após a integração; não presuma fechamento automático.
+
+O projeto é individual: uma verificação do próprio autor não deve ser apresentada como aprovação independente de outra pessoa.
+
+## Versionamento semântico
+
+As futuras tags seguirão vMAJOR.MINOR.PATCH: MAJOR para alterações incompatíveis, MINOR para novas funcionalidades compatíveis e PATCH para correções compatíveis. A primeira versão será definida após a validação de uma entrega; o milestone de organização não representa uma release nem comprova deploy.
