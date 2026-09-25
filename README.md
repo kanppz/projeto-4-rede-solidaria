@@ -18,4 +18,14 @@ Rotas por hash: Início, Projetos e Sobre. Formulário com validação local, se
 
 ## Estado da entrega
 
+## Fluxo de branches
+
+- `main`: base de lançamento; recebe apenas versões preparadas e verificadas.
+- `develop`: integração contínua das funcionalidades.
+- `feature/documentacao-gitflow`: criada a partir de develop para documentar este fluxo. Após revisão local, integrada em develop com merge --no-ff.
+- Futuras `release/*`: partirão de develop para preparação de uma versão, com integração em main e develop e tag de versão após validação.
+- Futuras `hotfix/*`: partirão de main para correções urgentes, retornando a main e develop.
+
+Commits usam prefixos como chore, docs, feat e fix. Não há branches release/hotfix criadas sem trabalho correspondente. Pull requests e revisão no GitHub permanecem pendentes de configuração do remoto.
+
 A base foi copiada do Projeto 3 para um repositório independente. GitHub, revisão remota, auditoria de acessibilidade, build e deploy ainda não foram executados neste projeto. A conformidade WCAG não foi certificada.
