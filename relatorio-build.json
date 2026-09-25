@@ -1,0 +1,17 @@
+{
+  "html": {
+    "antes": 1280,
+    "depois": 1221,
+    "reducaoPercentual": 4.61
+  },
+  "css": {
+    "antes": 3495,
+    "depois": 3008,
+    "reducaoPercentual": 13.93
+  },
+  "js": {
+    "antes": 9995,
+    "depois": 6636,
+    "reducaoPercentual": 33.61
+  }
+}
