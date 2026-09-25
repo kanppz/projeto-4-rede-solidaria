@@ -19,11 +19,21 @@ p { margin-block: 16px; max-width: 70ch; }
 button.botao { font: inherit; cursor: pointer; border: 2px solid transparent; }
 button[aria-pressed="true"] { background: #DCFCE7; color: var(--primaria); border-color: var(--primaria); }
 form { display: flex; flex-direction: column; gap: 8px; max-width: 540px; margin-top: 48px; }
-input { padding: 12px; border: 2px solid var(--borda); border-radius: 4px; min-width: 0; }
+input { padding: 12px; border: 2px solid var(--borda); border-radius: 4px; min-width: 0; color: var(--texto); background: var(--superficie); }
 input[aria-invalid="true"] { border-color: #B91C1C; background: #FEF2F2; }
 input[aria-invalid="false"] { border-color: var(--primaria); background: #DCFCE7; }
 :focus-visible { outline: 3px solid #1E40AF; outline-offset: 4px; }
 .pular { position: absolute; left: -10000px; }
 .pular:focus { left: 16px; top: 8px; background: white; padding: 8px; }
 @media (max-width: 600px) { .cabecalho { flex-direction: column; align-items: flex-start; } main { padding-block: 32px; } }
+[hidden] { display: none !important; }
+html[data-contraste="alto"] { --texto: #FFFFFF; --fundo: #000000; --superficie: #000000; --primaria: #FFFF00; --borda: #FFFFFF; color-scheme: dark; }
+html[data-contraste="alto"] .botao { background: #FFFF00; color: #000000; }
+html[data-contraste="alto"] button[aria-pressed="true"] { background: #000000; color: #FFFF00; border-color: #FFFF00; }
+html[data-contraste="alto"] .etiqueta { background: #000000; color: #FFFF00; border: 1px solid #FFFF00; }
+html[data-contraste="alto"] input[aria-invalid] { background: #000000; color: #FFFFFF; }
+html[data-contraste="alto"] input[aria-invalid="true"] { border-color: #FFB4B4; border-style: dashed; }
+html[data-contraste="alto"] input[aria-invalid="false"] { border-color: #FFFFFF; }
+html[data-contraste="alto"] :focus-visible { outline-color: #00FFFF; }
+html[data-contraste="alto"] .pular:focus { background: #000000; }
 
