@@ -8,9 +8,14 @@ function elemento(tag, texto, classe) {
 }
 export function cartaoProjeto(projeto) {
   const cartao = elemento('article', '', 'cartao');
-  cartao.append(elemento('span', projeto.categoria, 'etiqueta'), elemento('h2', projeto.titulo), elemento('p', projeto.descricao));
+  const titulo = elemento('h2', projeto.titulo);
+  titulo.id = `titulo-${projeto.id}`;
+  cartao.setAttribute('aria-labelledby', titulo.id);
+  cartao.append(elemento('span', projeto.categoria, 'etiqueta'), titulo, elemento('p', projeto.descricao));
   const selecionado = temInteresse(projeto.id);
-  const botao = elemento('button', selecionado ? 'Remover interesse' : 'Demonstrar interesse', 'botao');
+  const botao = elemento('button', 'Tenho interesse', 'botao');
+  botao.id = `interesse-${projeto.id}`;
+  botao.setAttribute('aria-labelledby', `${botao.id} ${titulo.id}`);
   botao.type = 'button';
   botao.dataset.acao = 'interesse';
   botao.dataset.projeto = projeto.id;
@@ -31,7 +36,13 @@ export function inicio() {
   const form = elemento('form');
   form.id = 'formulario-interesse';
   form.noValidate = true;
-  form.append(elemento('h2', 'Teste seu cadastro de interesse'), elemento('p', 'Demonstração local: nenhum dado é enviado ou armazenado.'));
+  const tituloForm = elemento('h2', 'Teste seu cadastro de interesse');
+  tituloForm.id = 'form-titulo';
+  const aviso = elemento('p', 'Demonstração local: nenhum dado é enviado ou armazenado.');
+  aviso.id = 'form-aviso';
+  form.setAttribute('aria-labelledby', tituloForm.id);
+  form.setAttribute('aria-describedby', aviso.id);
+  form.append(tituloForm, aviso);
   for (const [id, rotulo, tipo] of [['nome', 'Nome', 'text'], ['email', 'E-mail', 'email']]) {
     const label = elemento('label', `${rotulo} (obrigatório)`);
     label.htmlFor = id;

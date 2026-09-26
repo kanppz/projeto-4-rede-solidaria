@@ -14,9 +14,9 @@ export function iniciarEventos() {
     if (!botao || !conteudo.contains(botao)) return;
     const { selecionado, salvo } = alternarInteresse(botao.dataset.projeto);
     botao.setAttribute('aria-pressed', String(selecionado));
-    botao.textContent = selecionado ? 'Remover interesse' : 'Demonstrar interesse';
+    // Nome estável: aria-pressed comunica a mudança do botão de alternância.
     conteudo.querySelector('#interesses-status').textContent = salvo
-      ? 'Seleção atualizada e salva neste navegador.'
+      ? (selecionado ? 'Interesse marcado e salvo neste navegador.' : 'Interesse removido e salvo neste navegador.')
       : 'Seleção atualizada apenas nesta sessão. Não foi possível salvar no navegador.';
   });
   conteudo.addEventListener('input', evento => {
