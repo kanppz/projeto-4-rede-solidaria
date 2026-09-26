@@ -4,13 +4,13 @@ Consolidação da SPA acadêmica do Projeto 3, com versionamento, documentação
 
 ## Tecnologias e pré-requisitos
 
-HTML5, CSS3, JavaScript puro com módulos ES, APIs DOM, History e localStorage. Não há frameworks nem dependências NPM de execução. Para clonar, use Git; para servir os arquivos, Python 3 e um navegador moderno. Node.js é opcional, somente para conferir a sintaxe dos scripts.
+HTML5, CSS3, JavaScript puro com módulos ES, APIs DOM, History e localStorage. Não há frameworks de execução. Para build, use Node.js 24 e pnpm 11.19.0; esbuild e html-minifier-terser são dependências de desenvolvimento. Git é utilizado para clonar, e Python 3 pode servir os arquivos localmente.
 
 ## Instalação e execução local
 
 1. Clone o repositório: `git clone https://github.com/kanppz/projeto-4-rede-solidaria.git`.
 2. Entre na pasta: `cd projeto-4-rede-solidaria`.
-3. Para consultar esta documentação enquanto o PR #2 está aberto, execute `git switch feature/colaboracao-github`. Após sua integração, use `git switch develop` e `git pull --ff-only`.
+3. Utilize `git switch main` para a versão de produção após a integração do PR #3.
 4. Execute `python -m http.server 8000 --bind 127.0.0.1`. No Windows, se o executável se chamar py, use `py -3 -m http.server 8000 --bind 127.0.0.1`.
 5. Abra `http://127.0.0.1:8000/html/index.html`. Encerre o servidor com Ctrl+C.
 
@@ -40,7 +40,7 @@ Esses comandos não substituem testes de comportamento. Nesta pasta não há su�
 
 ## Build e publicação
 
-A aplicação atual utiliza arquivos estáticos diretamente; não há compilação, minificação ou comando npm run build configurado. Para hospedá-la, os diretórios html, css, imagens e js devem manter suas posições relativas, com entrada em html/index.html. Preparação otimizada e deploy serão tratados em etapa posterior. Publicar o repositório no GitHub não publica automaticamente o site.
+Execute `pnpm install --frozen-lockfile` e `pnpm run build`. A pasta dist contém HTML, CSS e JavaScript minificados; dist/index.html encaminha à entrada html/index.html. Execute `node scripts/verificar-build.cjs` e `node scripts/contraste.cjs` para verificar a saída e a paleta. Consulte [DEPLOY.md](DEPLOY.md) para CI/CD. Site configurado: https://kanppz.github.io/projeto-4-rede-solidaria/ . O resultado de cada publicação aparece na aba Actions do repositório.
 
 ## Estrutura e funcionalidades
 
@@ -56,7 +56,7 @@ Rotas por hash: Início, Projetos e Sobre. Formulário com validação local, se
 
 Repositório público: https://github.com/kanppz/projeto-4-rede-solidaria
 
-O histórico local e as branches main, develop e feature/documentacao-gitflow foram publicados. Auditoria de acessibilidade, build e deploy continuam pendentes. A conformidade WCAG não foi certificada. Não há release publicada nesta etapa.
+O histórico e as branches estão no GitHub. Build e pipeline de deploy foram implementados. Inclui semântica HTML, foco visível, validação acessível e alto contraste. A conformidade WCAG completa não foi certificada; testes com leitores de tela permanecem pendentes.
 
 ## Fluxo de branches
 
@@ -72,7 +72,7 @@ Commits usam prefixos como chore, docs, feat e fix. Não há branches release/ho
 
 A [issue #1](https://github.com/kanppz/projeto-4-rede-solidaria/issues/1) define os critérios da atualização desta documentação. O trabalho ocorre em feature/colaboracao-github, criada a partir de develop, e é apresentado em pull request para develop antes da integração.
 
-Registros reais: [PR #2](https://github.com/kanppz/projeto-4-rede-solidaria/pull/2) e [milestone da etapa 1](https://github.com/kanppz/projeto-4-rede-solidaria/milestone/1). O PR permanece aberto nesta etapa.
+Registros reais: [PR #2](https://github.com/kanppz/projeto-4-rede-solidaria/pull/2), [PR #3 de produção](https://github.com/kanppz/projeto-4-rede-solidaria/pull/3) e [milestone da etapa 1](https://github.com/kanppz/projeto-4-rede-solidaria/milestone/1). Consulte os links para o estado atual das integrações.
 
 Fluxo para futuras alterações: abrir issue com critérios de aceite, vinculá-la ao milestone da etapa, criar branch feature, registrar commits claros, abrir PR com contexto e validação, revisar o diff e então integrar. Referencie a issue na descrição do PR. Como develop não é a branch padrão, confira o encerramento da issue após a integração; não presuma fechamento automático.
 
